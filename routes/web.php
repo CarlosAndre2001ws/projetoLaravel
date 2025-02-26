@@ -68,3 +68,11 @@ Route::get('/stream', function () {
         }
     }, 200, ['X-Accel-Buffering' => 'no']);
 });
+//view
+Route::get('/greetings', function(){
+    return view('greetings',['name' => 'Jhon Marston']);
+});
+//nested view
+Route::get('/hidden', function(){
+    return view('hidden.dontLook');
+});
