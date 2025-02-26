@@ -28,6 +28,7 @@ class UserController extends Controller
 
     public function show(User $user): View
     {
+        //redirect with controller
         return view('index', ['user' => $user->name]);
     }
 }

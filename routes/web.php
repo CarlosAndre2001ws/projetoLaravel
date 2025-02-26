@@ -44,4 +44,8 @@ Route::redirect('/google', 'https://www.google.com');
 // Redirect with controller
 Route::get('/', [UserController::class, 'index']);
 
+// Redirect with controller
+Route::get('/primo', [UserController::class, 'teste']);
 
+// Redirect with controller
+Route::get('/nome/{user}', [UserController::class, 'nome'])->name('nome');
