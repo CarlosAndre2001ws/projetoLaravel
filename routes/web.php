@@ -52,3 +52,19 @@ Route::get('/nome/{user}', [UserController::class, 'nome'])->name('nome');
 
 // Redirect with controller action
 Route::get('/teste', [UserController::class, 'redirectAction']);
+
+function streamedContent(): Generator {
+    yield 'Hello, ';
+    yield 'World!';
+}
+// Streamed Respnses
+Route::get('/stream', function () {
+    return response()->stream(function (): void {
+        foreach (streamedContent() as $chunk) {
+            echo $chunk;
+            ob_flush();
+            flush();
+            sleep(2); // Simulate delay between chunks...
+        }
+    }, 200, ['X-Accel-Buffering' => 'no']);
+});
