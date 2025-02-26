@@ -31,4 +31,11 @@ class UserController extends Controller
         //redirect with controller
         return view('index', ['user' => $user->name]);
     }
+
+    public function redirectAction(): string
+    {
+        return redirect()->action(
+            [UserController::class, 'index']
+        );
+    }
 }

@@ -49,3 +49,6 @@ Route::get('/primo', [UserController::class, 'teste']);
 
 // Redirect with controller
 Route::get('/nome/{user}', [UserController::class, 'nome'])->name('nome');
+
+// Redirect with controller action
+Route::get('/teste', [UserController::class, 'redirectAction']);
