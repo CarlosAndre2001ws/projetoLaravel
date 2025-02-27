@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -42,6 +43,12 @@ class UserController extends Controller
     //Passing data through view
     public function username(): View
     {
-        return view('username', ['user' => 'Marlos Johnson']);
+        return view('username', [
+            'user' => 'Marlos Johnson',
+            'occupation' => 'astronaut',
+            'records' => 111,
+            'i' => 2,
+            'users' => ['carlos', 'andre', 'artur', 'rodrigo', 'fabio', 'felipe'],
+        ]);
     }
 }
