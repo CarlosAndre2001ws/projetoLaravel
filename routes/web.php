@@ -76,3 +76,6 @@ Route::get('/greetings', function(){
 Route::get('/hidden', function(){
     return view('hidden.dontLook');
 });
+
+// Passing data through a view
+Route::get('/username', [UserController::class, 'username']);

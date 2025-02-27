@@ -38,4 +38,10 @@ class UserController extends Controller
             [UserController::class, 'index']
         );
     }
+
+    //Passing data through view
+    public function username(): View
+    {
+        return view('username', ['user' => 'Marlos Johnson']);
+    }
 }
