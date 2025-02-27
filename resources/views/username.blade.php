@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 Hi, {{ $user }}
 <br>
 You are a {{ $occupation }}
@@ -73,6 +76,40 @@ You are a {{ $occupation }}
     @endif
     {{ $user }}
     @if($loop->last)
-        <br>this is the last loop
+        <br>this is the last loop <br>
     @endif
 @endforeach
+
+@php
+    $isActive = false;
+    $hasError = true;
+@endphp
+
+<div @class([
+    'p-4',
+    'font-bold' => $isActive,
+    'text-gray-500' => ! $isActive,
+    'bg-warning' => $hasError,
+])>hello</div>
+
+<div class="p-4 text-gray-500 bg-info">oi</div>
+
+<div>
+    <label for="active">be</label>
+    <input
+        type="checkbox"
+        name="active"
+        value="active"
+        @checked(old('active'))
+    />
+</div>
+    <div>
+        <select name="version">
+            @foreach ($users as $user)
+                <option value="{{ $user }}" @selected(old('version') == $user)>
+                    {{ $user }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+@endsection
