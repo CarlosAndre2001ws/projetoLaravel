@@ -112,6 +112,6 @@
 {{--            @endforeach--}}
 {{--        </select>--}}
 {{--    </div>--}}
-{{-- Blade Components --}}
+{{-- Blade Components. --}}
     <x-alert></x-alert>
 @endsection
