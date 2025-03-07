@@ -1,1 +1,1 @@
-alert('eu sou um alerta!')
+console.log('eu sou um log!');

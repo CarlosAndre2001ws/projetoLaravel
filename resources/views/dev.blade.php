@@ -27,8 +27,4 @@
     @error('email', 'login')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
-
-    @push('scripts')
-        <script src="alert.js"></script>
-    @endpush
 @endsection
