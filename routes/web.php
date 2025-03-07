@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -79,3 +80,7 @@ Route::get('/hidden', function(){
 
 // Passing data through a view
 Route::get('/username', [UserController::class, 'username']);
+
+Route::get('/tasks', function(){
+    return view('tasks', ['tasks' => ['Task 1', 'Task 2', 'Task 3'], 'title' => 'Task 1']);
+});

@@ -1,3 +1,9 @@
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-</div>
+<x-layout>
+    <x-slot:title>
+        {{ $title }}
+    </x-slot:title>
+
+    @foreach ($tasks as $task)
+        <div>{{ $task }}</div>
+    @endforeach
+</x-layout>

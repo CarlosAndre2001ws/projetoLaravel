@@ -1,3 +1,12 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
+<html>
+    <head>
+        <title>
+            {{ $title ?? 'Todo Manager' }}
+        </title>
+    </head>
+    <body>
+        <h1>Todos</h1>
+        <hr/>
+        {{ $slot }}
+    </body>
+</html>
