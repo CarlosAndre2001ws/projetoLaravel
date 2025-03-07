@@ -122,6 +122,12 @@
                 @endforeach
             </select>
         </div>
-
     <x-forms.input></x-forms.input>
+
+    <x-menu color="purple">
+        <x-menu.item class="item">teste1</x-menu.item>
+        <x-menu.item class="item">teste2</x-menu.item>
+        <x-menu.item class="item">teste3</x-menu.item>
+        <x-menu.item class="item">teste4</x-menu.item>
+    </x-menu>
 @endsection
