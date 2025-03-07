@@ -84,3 +84,11 @@ Route::get('/username', [UserController::class, 'username']);
 Route::get('/tasks', function(){
     return view('tasks', ['tasks' => ['Task 1', 'Task 2', 'Task 3'], 'title' => 'Task 1']);
 });
+
+Route::get('/minha-tela', function(){
+    return view('child');
+});
+
+Route::get('/dev', function (){
+    return view('dev');
+});
