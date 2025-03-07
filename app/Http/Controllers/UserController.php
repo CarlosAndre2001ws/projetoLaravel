@@ -49,6 +49,7 @@ class UserController extends Controller
             'records' => 111,
             'i' => 2,
             'users' => ['carlos', 'andre', 'artur', 'rodrigo', 'fabio', 'felipe'],
+            'userTeste' => 'artur',
         ]);
     }
 }

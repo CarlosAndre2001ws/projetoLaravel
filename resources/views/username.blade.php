@@ -113,5 +113,15 @@
 {{--        </select>--}}
 {{--    </div>--}}
 {{-- Blade Components. --}}
-    <x-alert></x-alert>
+<x-alert class="container" type="danger" :message="'message'" :role="'alert'"></x-alert>
+
+        <div class="d-flex col-2">
+            <select name="version" class="form-select">
+            @foreach ($users as $user)
+                    <x-option :user="$user" :user-teste="$userTeste"></x-option>
+                @endforeach
+            </select>
+        </div>
+
+    <x-forms.input></x-forms.input>
 @endsection
