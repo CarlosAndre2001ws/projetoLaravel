@@ -31,4 +31,16 @@
     @push('scripts')
         <script src="{{ asset('js/alert.js') }}"></script>
     @endpush
+
+    @pushIF($amIScared, 'scripts')
+        <script src="{{ asset('js/sream.js') }}"></script>
+    @endpushif
+
+    @push('scripts')
+        <script src="{{ asset('js/second.js') }}"></script>
+    @endpush
+
+    @prepend('scripts')
+        <script src="{{ asset('js/first.js') }}"></script>
+    @endprepend
 @endsection

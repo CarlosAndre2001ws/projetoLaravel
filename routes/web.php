@@ -90,5 +90,5 @@ Route::get('/minha-tela', function(){
 });
 
 Route::get('/dev', function (){
-    return view('dev');
+    return view('dev', ['amIScared' => false]);
 });
