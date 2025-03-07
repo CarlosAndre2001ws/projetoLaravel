@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -91,4 +92,8 @@ Route::get('/minha-tela', function(){
 
 Route::get('/dev', function (){
     return view('dev', ['amIScared' => false]);
+});
+
+Route::get('/inline', function(){
+   return Blade::render('Hello, {{ $name }}', ['name' => 'Julian']);
 });
