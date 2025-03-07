@@ -95,5 +95,7 @@ Route::get('/dev', function (){
 });
 
 Route::get('/inline', function(){
-   return Blade::render('Hello, {{ $name }}', ['name' => 'Julian']);
+   return Blade::render('Hello, {{ $name }}',
+       ['name' => 'Julian'],
+       deleteCachedView: true);
 });
