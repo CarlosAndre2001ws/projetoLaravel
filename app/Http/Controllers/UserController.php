@@ -33,6 +33,15 @@ class UserController extends Controller
         return view('index', ['user' => $user->name]);
     }
 
+    public function showSession(Request $request): View
+    {
+        $user = User::find(1);
+
+        session()->put('user', $user);
+
+        return view('profile', ['user' => $user], ['request' => $request]);
+    }
+
     public function redirectAction(): string
     {
         return redirect()->action(

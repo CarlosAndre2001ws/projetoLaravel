@@ -40,6 +40,8 @@ Route::get('/dashboard', function(){
     return redirect()->route('home');
 });
 
+Route::get('/profile', [UserController::class, 'showSession']);
+
 // Redirecting by route
 Route::redirect('/google', 'https://www.google.com');
 
