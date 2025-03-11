@@ -37,7 +37,8 @@ class UserController extends Controller
     {
         $user = User::find(1);
 
-        session()->put('user', $user);
+        session()->pull('user');
+//        session()->put('user', $user);
 
         return view('profile', ['user' => $user], ['request' => $request]);
     }
