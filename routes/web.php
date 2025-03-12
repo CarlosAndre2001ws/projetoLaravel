@@ -104,4 +104,4 @@ Route::get('/inline', function(){
        deleteCachedView: true);
 });
 
-Route::get('/dev/post', [StorePostRequest::class, 'authorize']);
+Route::get('/dev/post', [PostController::class, 'store']);
