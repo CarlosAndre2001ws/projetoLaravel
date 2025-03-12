@@ -11,8 +11,18 @@ class PostController extends Controller
     public function store(Request $request): View
     {
         $validated = $request->validate([
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'bail|required|unique:posts|max:255',
             'email' => 'required|email',
+        ]);
+
+        return view('dev');
+    }
+
+    public function secondValidation(Request $request): View
+    {
+        $validated = $request->validateWithBag('post', [
+            'title' => ['bail|required', 'unique:posts', 'max:255'],
+            'email' => ['required', 'email:unique'],
         ]);
 
         return view('dev');

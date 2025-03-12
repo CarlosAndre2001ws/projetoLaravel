@@ -24,9 +24,18 @@
             />
             <button class="btn btn-primary m-2 col-3">Entrar</button>
         </form>
-        @error('title')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+{{--        @error('title')--}}
+{{--        <div class="alert alert-danger">{{ $message }}</div>--}}
+{{--        @enderror--}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 
 {{--    @error('email', 'login')--}}
