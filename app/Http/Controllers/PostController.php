@@ -16,7 +16,8 @@ class PostController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255|string',
-            'email' => 'required|unique:email'
+            'email' => 'required|email',
+            'cc_number' => 'numeric',
         ]);
 
         if($validator->fails()){
