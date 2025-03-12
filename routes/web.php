@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\User;
 use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
@@ -101,3 +102,5 @@ Route::get('/inline', function(){
        ['name' => 'Julian'],
        deleteCachedView: true);
 });
+
+Route::get('/dev/post', [PostController::class, 'store']);

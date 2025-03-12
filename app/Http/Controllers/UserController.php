@@ -36,7 +36,7 @@ class UserController extends Controller
     public function showSession(Request $request): View
     {
         $user = User::find(1);
-        session()->pull('count');
+//        session()->pull('count');
 //        session()->pull('user');
 //        session()->put('user', $user);
 
