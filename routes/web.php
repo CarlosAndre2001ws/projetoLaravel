@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Requests\StorePostRequest;
 use App\Models\User;
 use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
@@ -103,4 +104,4 @@ Route::get('/inline', function(){
        deleteCachedView: true);
 });
 
-Route::get('/dev/post', [PostController::class, 'store']);
+Route::get('/dev/post', [StorePostRequest::class, 'authorize']);
