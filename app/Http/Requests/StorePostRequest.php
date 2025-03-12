@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
@@ -29,7 +30,7 @@ class StorePostRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -39,11 +40,25 @@ class StorePostRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'title.required' => 'lmao',
-            'email.required' => 'xd'
-        ];
-    }
+//    /**
+//     * Get the error messages used by the form request and overwrites it.
+//     *
+//     * @return array<string, ValidationRule|array|string>
+//     */
+//
+//    public function messages(): array
+//    {
+//        return [
+//            'title.required' => 'lmao',
+//            'email.required' => 'xd'
+//        ];
+//    }
+
+//    public function attributes(): array
+//    {
+//        return [
+//            'title' => 'skibidi',
+//            'email' => 'sigma male'
+//        ];
+//    }
 }

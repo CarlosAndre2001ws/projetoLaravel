@@ -22,7 +22,7 @@
             name="email"
             type="email"
             value="{{ old('email') }}"
-            class="form-control @error('email', 'login') is-invalid @enderror"
+            class="form-control @if($errors->has('email')) {{ $errors->has('title') ? '' : 'is-invalid' }} @endif"
             />
 
             <label for="date">Date</label>
