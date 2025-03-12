@@ -23,7 +23,7 @@ class StorePostRequest extends FormRequest
 
     public function authorize(): bool
     {
-        return $this->user()->can('storePost');
+        return true;
     }
 
     /**
@@ -36,6 +36,14 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'bail|required|unique:posts|max:255|string',
             'email' => 'required|email',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'lmao',
+            'email.required' => 'xd'
         ];
     }
 }
