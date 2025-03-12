@@ -10,6 +10,7 @@
                 id="title"
                 name="title"
                 type="text"
+                value="{{ old('title') }}"
                 class="form-control @error('title') is-invalid @enderror"
             >
 
@@ -20,8 +21,14 @@
             id="email"
             name="email"
             type="email"
+            value="{{ old('email') }}"
             class="form-control @error('email', 'login') is-invalid @enderror"
             />
+
+            <label for="date">Date</label>
+
+            <input id="date" name="date" class="form-control" type="date">
+
             <button class="btn btn-primary m-2 col-3">Entrar</button>
         </form>
 {{--        @error('title')--}}
