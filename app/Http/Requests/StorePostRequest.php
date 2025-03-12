@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StorePostRequest extends FormRequest
 {
@@ -37,6 +39,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'bail|required|unique:posts|max:255|string',
             'email' => 'required|email',
+            'cc_number' => 'required_if:payment,cc',
         ];
     }
 
@@ -57,8 +60,10 @@ class StorePostRequest extends FormRequest
 //    public function attributes(): array
 //    {
 //        return [
-//            'title' => 'skibidi',
-//            'email' => 'sigma male'
+////            'title' => 'skibidi',
+////            'email' => 'sigma male'
+//              'title' => 'título',
+//              'teste' => 'um maluco no pedaço'
 //        ];
 //    }
 }

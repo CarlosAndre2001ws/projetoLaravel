@@ -175,8 +175,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'title' => [
+            'required' => 'O campo :attribute não pode estar vazio.',
+            'max' => 'O campo :attribute não pode ter mais de :max caracteres.',
+        ],
+        'cc_number' => [
+            'required_if' => 'O campo Credit Card Number é obrigatório quando o pagamento é feito com :attribute.',
         ],
     ],
 
@@ -191,6 +195,8 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'title' => 'título',
+        'cc_number' => 'cartão de crédito',
+    ],
 ];

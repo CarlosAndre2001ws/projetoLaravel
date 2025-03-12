@@ -18,12 +18,28 @@
             <label for="email">Email address</label>
 
             <input
-            id="email"
-            name="email"
-            type="email"
-            value="{{ old('email') }}"
-            class="form-control @if($errors->has('email')) {{ $errors->has('title') ? '' : 'is-invalid' }} @endif"
+                id="email"
+                name="email"
+                type="email"
+                value="{{ old('email') }}"
+                class="form-control @if($errors->has('email')) {{ $errors->has('title') ? '' : 'is-invalid' }} @endif"
             />
+            {{--            <label for="payment-method">Payment Type</label>--}}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment" value="pix" id="pix">
+                <label class="form-check-label" for="pix">
+                    PIX
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment" value="cc" id="cc" checked>
+                <label class="form-check-label" for="cc">
+                    Credit Card
+                </label>
+            </div>
+
+            <label class="form-label" for="cc_number">Credit Card Number</label>
+            <input type="text" class="form-control" name="cc_number" id="cc_number">
 
             <label for="date">Date</label>
 
@@ -31,9 +47,9 @@
 
             <button class="btn btn-primary m-2 col-3">Entrar</button>
         </form>
-{{--        @error('title')--}}
-{{--        <div class="alert alert-danger">{{ $message }}</div>--}}
-{{--        @enderror--}}
+        {{--        @error('title')--}}
+        {{--        <div class="alert alert-danger">{{ $message }}</div>--}}
+        {{--        @enderror--}}
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -46,23 +62,23 @@
     </div>
 
 
-{{--    @error('email', 'login')--}}
-{{--        <div class="alert alert-danger">{{ $message }}</div>--}}
-{{--    @enderror--}}
+    {{--    @error('email', 'login')--}}
+    {{--        <div class="alert alert-danger">{{ $message }}</div>--}}
+    {{--    @enderror--}}
 
-{{--    @push('scripts')--}}
-{{--        <script src="{{ asset('js/alert.js') }}"></script>--}}
-{{--    @endpush--}}
+    {{--    @push('scripts')--}}
+    {{--        <script src="{{ asset('js/alert.js') }}"></script>--}}
+    {{--    @endpush--}}
 
-{{--    @pushIF($amIScared, 'scripts')--}}
-{{--        <script src="{{ asset('js/sream.js') }}"></script>--}}
-{{--    @endpushif--}}
+    {{--    @pushIF($amIScared, 'scripts')--}}
+    {{--        <script src="{{ asset('js/sream.js') }}"></script>--}}
+    {{--    @endpushif--}}
 
-{{--    @push('scripts')--}}
-{{--        <script src="{{ asset('js/second.js') }}"></script>--}}
-{{--    @endpush--}}
+    {{--    @push('scripts')--}}
+    {{--        <script src="{{ asset('js/second.js') }}"></script>--}}
+    {{--    @endpush--}}
 
-{{--    @prepend('scripts')--}}
-{{--        <script src="{{ asset('js/first.js') }}"></script>--}}
-{{--    @endprepend--}}
+    {{--    @prepend('scripts')--}}
+    {{--        <script src="{{ asset('js/first.js') }}"></script>--}}
+    {{--    @endprepend--}}
 @endsection

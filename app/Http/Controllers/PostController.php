@@ -11,11 +11,13 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-    public function store(StorePostRequest $request): View
+    public function store(StorePostRequest $request)
     {
         $validated = $request->validated();
 
-        return view('dev');
+        $payment = $request->all('payment');
+
+        return $request;
     }
 
     public function secondValidation(StorePostRequest $request): View
@@ -26,5 +28,4 @@ class PostController extends Controller
 
         return view('dev');
     }
-
 }
