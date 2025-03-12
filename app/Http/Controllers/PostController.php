@@ -6,6 +6,7 @@ use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 use App\Models\User;
 
@@ -13,9 +14,18 @@ class PostController extends Controller
 {
     public function store(StorePostRequest $request)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255|string',
+            'email' => 'required|unique:email'
+        ]);
 
-        $payment = $request->all('payment');
+        if($validator->fails()){
+            return redirect('/dev')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $validated = $request->validated();
 
         return $request;
     }
