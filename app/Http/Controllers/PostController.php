@@ -11,11 +11,7 @@ class PostController extends Controller
 {
     public function store(StorePostRequest $request): View
     {
-        $validated = $request->validate([
-            'title' => 'bail|required|unique:posts|max:255|string',
-            'email' => 'required|email',
-            'date'  => 'nullable|date',
-        ]);
+        $validated = $request->validated();
 
         return view('dev');
     }
