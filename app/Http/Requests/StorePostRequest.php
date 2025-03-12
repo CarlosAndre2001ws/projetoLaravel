@@ -10,20 +10,20 @@ class StorePostRequest extends FormRequest
      * Determine if the user is authorized to make this request.
      */
 
-    /**
-
-     * The URI that users should be redirected to if validation fails.
-
-     *
-
-     * @var string
-
-     */
+//    /**
+//
+//     * The URI that users should be redirected to if validation fails.
+//
+//     *
+//
+//     * @var string
+//
+//     */
 //    protected $redirect = '/login';
 
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->can('storePost');
     }
 
     /**
