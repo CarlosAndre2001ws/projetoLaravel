@@ -45,6 +45,7 @@
         @endif
     </div>
 
+
 {{--    @error('email', 'login')--}}
 {{--        <div class="alert alert-danger">{{ $message }}</div>--}}
 {{--    @enderror--}}
