@@ -38,13 +38,14 @@ class PostController extends Controller
 //
 //        return redirect('/dev');
 
-        Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255|string',
             'email' => 'required|email',
             'cc_number' => 'numeric',
-        ])->validateWithBag('login');
+        ]);
 
-        return redirect('/dev');
+
+        return redirect('/dev')->withErrors($validator, 'login');
     }
 
     public function secondValidation(StorePostRequest $request): View
