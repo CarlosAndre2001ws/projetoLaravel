@@ -12,7 +12,9 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-    public function _construct(){}
+    public function _construct()
+    {
+    }
 
     public function store(Request $request)
     {
@@ -67,9 +69,9 @@ class PostController extends Controller
 
 //        $validated = $request->validated();
 
-
-
-        return $validator->safe()->merge(['skibidi' => 'toilet']);
+//        return $validator->safe()->merge(['skibidi' => 'toilet']);
+//        return $validator->safe()->collect();
+          return redirect('dev');
     }
 
     public function secondValidation(StorePostRequest $request): View
