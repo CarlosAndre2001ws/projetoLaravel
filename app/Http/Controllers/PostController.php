@@ -12,23 +12,28 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-    public function store(StorePostRequest $request)
+    public function store(StorePostRequest $request): RedirectResponse
     {
-        $validator = Validator::make($request->all(), [
+//        $validator = Validator::make($request->all(), [
+//            'title' => 'required|unique:posts|max:255|string',
+//            'email' => 'required|email',
+//            'cc_number' => 'numeric',
+//        ]);
+//
+//        if($validator->fails()){
+//            return redirect('/dev')
+//                ->withErrors($validator)
+//                ->withInput();
+//        }
+//
+//        $validated = $request->validated();
+        Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255|string',
             'email' => 'required|email',
             'cc_number' => 'numeric',
-        ]);
+        ])->validate();
 
-        if($validator->fails()){
-            return redirect('/dev')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $validated = $request->validated();
-
-        return $request;
+        return redirect('/dev');
     }
 
     public function secondValidation(StorePostRequest $request): View

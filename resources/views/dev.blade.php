@@ -39,11 +39,11 @@
             </div>
 
             <label class="form-label" for="cc_number">Credit Card Number</label>
-            <input type="text" class="form-control" name="cc_number" id="cc_number">
+            <input type="text" class="form-control @error('cc_number') is-invalid @enderror" name="cc_number" id="cc_number">
 
             <label for="date">Date</label>
 
-            <input id="date" name="date" class="form-control" type="date">
+            <input id="date" name="date" class="form-control @error('date') is-invalid @enderror" type="date">
 
             <button class="btn btn-primary m-2 col-3">Entrar</button>
         </form>
