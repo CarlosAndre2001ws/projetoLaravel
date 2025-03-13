@@ -12,28 +12,42 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-    public function store(StorePostRequest $request): RedirectResponse
+    public function _construct(){}
+
+    public function store(Request $request)
     {
-//        $validator = Validator::make($request->all(), [
+//        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255|string',
+            'email' => 'required|email',
+            'cc_number' => 'numeric',
+        ]);
+
+//        $rules = [
+//            'title' => 'required|unique:posts|max:255|string',
+//            'email' => 'required|email',
+//            'cc_number' => 'numeric',
+//        ];
+
+//        $validated = Validator::make($request->all(), [
 //            'title' => 'required|unique:posts|max:255|string',
 //            'email' => 'required|email',
 //            'cc_number' => 'numeric',
 //        ]);
-//
-//        if($validator->fails()){
-//            return redirect('/dev')
-//                ->withErrors($validator)
-//                ->withInput();
-//        }
-//
-//        $validated = $request->validated();
-        Validator::make($request->all(), [
-            'title' => 'required|unique:posts|max:255|string',
-            'email' => 'required|email',
-            'cc_number' => 'numeric',
-        ])->validate();
+//        $validated = Validator::make($rules, $messages = [
+//            'required' => 'O campo :attribute é obrigatório',
+//        ]);
 
-        return redirect('/dev');
+        if($validator->stopOnFirstFailure()->fails()){
+            return redirect('/dev')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $validated = $validator->validated();
+
+        return redirect('/dev')->withErrors($validated, 'store');
+//        return $request;
     }
 
     public function secondValidation(StorePostRequest $request): View

@@ -50,6 +50,7 @@
         {{--        @error('title')--}}
         {{--        <div class="alert alert-danger">{{ $message }}</div>--}}
         {{--        @enderror--}}
+        a{{ $errors }}a
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

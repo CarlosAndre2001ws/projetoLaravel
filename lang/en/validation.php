@@ -174,15 +174,15 @@ return [
     |
     */
 
-    'custom' => [
-        'title' => [
-            'required' => 'O campo :attribute não pode estar vazio.',
-            'max' => 'O campo :attribute não pode ter mais de :max caracteres.',
-        ],
-//        'cc_number' => [
-//            'required_if' => 'O campo Credit Card Number é obrigatório quando o pagamento é feito com :attribute.',
+//    'custom' => [
+//        'title' => [
+//            'required' => 'O campo :attribute não pode estar vazio.',
+//            'max' => 'O campo :attribute não pode ter mais de :max caracteres.',
 //        ],
-    ],
+////        'cc_number' => [
+////            'required_if' => 'O campo Credit Card Number é obrigatório quando o pagamento é feito com :attribute.',
+////        ],
+//    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -195,13 +195,13 @@ return [
     |
     */
 
-    'attributes' => [
-        'title' => 'título',
-        'cc_number' => 'credit card number',
-    ],
-    'values' => [
-        'payment' => [
-            'cc' => 'credit card',
-        ],
-    ],
+//    'attributes' => [
+//        'title' => 'título',
+//        'cc_number' => 'credit card number',
+//    ],
+//    'values' => [
+//        'payment' => [
+//            'cc' => 'credit card',
+//        ],
+//    ],
 ];
