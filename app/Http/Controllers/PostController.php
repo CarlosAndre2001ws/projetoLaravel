@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     public function _construct(){}
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
 //        $validator = Validator::make($request->all(), [
 //            'title' => 'required|unique:posts|max:255|string',
@@ -44,20 +44,32 @@ class PostController extends Controller
 //            'cc_number' => 'numeric',
 //        ]);
 
-        $input = $request->all();
-
-        $rules = [
+//        $input = $request->all();
+//
+//        $rules = [
+//            'title' => 'required|unique:posts|max:255|string',
+//            'email' => 'required|email',
+//            'cc_number' => 'numeric',
+//        ];
+//
+//        $validator = Validator::make($input, $rules, $messages = [
+//            'required' => 'O campo :attribute é obrigatório',
+//            'numeric'  => 'O campo :attribute deve ser numérico',
+//        ]);
+        $validator = Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255|string',
             'email' => 'required|email',
             'cc_number' => 'numeric',
-        ];
-
-        $validator = Validator::make($input, $rules, $messages = [
-            'required' => 'O campo :attribute é obrigatório',
-            'numeric'  => 'O campo :attribute deve ser numérico',
         ]);
+//
+//
+        $validated = $validator->validate();
 
-        return redirect('/dev')->withErrors($validator, 'login');
+//        $validated = $request->validated();
+
+
+
+        return $validator->safe()->merge(['skibidi' => 'toilet']);
     }
 
     public function secondValidation(StorePostRequest $request): View
