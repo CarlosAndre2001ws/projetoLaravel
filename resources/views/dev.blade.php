@@ -50,11 +50,11 @@
         {{--        @error('title')--}}
         {{--        <div class="alert alert-danger">{{ $message }}</div>--}}
         {{--        @enderror--}}
-        a{{ $errors }}a
-        @if ($errors->any())
+        a{{ $errors->login->any() }}a
+        @if ($errors->login->any())
             <div class="alert alert-danger">
                 <ul>
-                    @foreach ($errors->all() as $error)
+                    @foreach ($errors->login->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>

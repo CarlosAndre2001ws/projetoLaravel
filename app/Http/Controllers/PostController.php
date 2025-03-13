@@ -14,40 +14,37 @@ class PostController extends Controller
 {
     public function _construct(){}
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-//        $validated = $request->validated();
-        $validator = Validator::make($request->all(), [
+//        $validator = Validator::make($request->all(), [
+//            'title' => 'required|unique:posts|max:255|string',
+//            'email' => 'required|email',
+//            'cc_number' => 'numeric',
+//        ]);
+
+//        if($validator->stopOnFirstFailure()->fails()){
+//            return redirect('/dev')
+//                ->withErrors($validator)
+//                ->withInput();
+//        }
+
+//        return redirect('/dev')->withErrors($validated, 'store');
+//        return $request;
+//        Validator::make($request->all(), [
+//            'title' => 'required|unique:posts|max:255|string',
+//            'email' => 'required|email',
+//            'cc_number' => 'numeric',
+//        ])->validate();
+//
+//        return redirect('/dev');
+
+        Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255|string',
             'email' => 'required|email',
             'cc_number' => 'numeric',
-        ]);
+        ])->validateWithBag('login');
 
-//        $rules = [
-//            'title' => 'required|unique:posts|max:255|string',
-//            'email' => 'required|email',
-//            'cc_number' => 'numeric',
-//        ];
-
-//        $validated = Validator::make($request->all(), [
-//            'title' => 'required|unique:posts|max:255|string',
-//            'email' => 'required|email',
-//            'cc_number' => 'numeric',
-//        ]);
-//        $validated = Validator::make($rules, $messages = [
-//            'required' => 'O campo :attribute é obrigatório',
-//        ]);
-
-        if($validator->stopOnFirstFailure()->fails()){
-            return redirect('/dev')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $validated = $validator->validated();
-
-        return redirect('/dev')->withErrors($validated, 'store');
-//        return $request;
+        return redirect('/dev');
     }
 
     public function secondValidation(StorePostRequest $request): View
