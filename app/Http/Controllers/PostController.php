@@ -38,12 +38,24 @@ class PostController extends Controller
 //
 //        return redirect('/dev');
 
-        $validator = Validator::make($request->all(), [
+//        $validator = Validator::make($request->all(), [
+//            'title' => 'required|unique:posts|max:255|string',
+//            'email' => 'required|email',
+//            'cc_number' => 'numeric',
+//        ]);
+
+        $input = $request->all();
+
+        $rules = [
             'title' => 'required|unique:posts|max:255|string',
             'email' => 'required|email',
             'cc_number' => 'numeric',
-        ]);
+        ];
 
+        $validator = Validator::make($input, $rules, $messages = [
+            'required' => 'O campo :attribute é obrigatório',
+            'numeric'  => 'O campo :attribute deve ser numérico',
+        ]);
 
         return redirect('/dev')->withErrors($validator, 'login');
     }
