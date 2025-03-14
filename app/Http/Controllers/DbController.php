@@ -259,7 +259,17 @@ class DbController extends Controller
 //            ->whereTodayOrAfter('due_at')
 //            ->get();
 
+//        $users = DB::table('users')
+//            ->whereColumn('created_at', '=', 'updated_at')
+//            ->get();
 
+//        $users = DB::table('users')
+//            ->whereColumn([
+//                ['email', '!=', null],
+//                ['id', '!=', null],
+//                ['email_verified_at', '!=', null],
+//            ])
+//            ->get();
 
         dd($users);
 
