@@ -81,9 +81,27 @@ class DbController extends Controller
 //            $users = ['Exists' => 'I exist !'];
 //        }
 
+//        $users = DB::table('users')
+//            ->select('name', 'email as user_email')
+//            ->get();
+//        dd($users);
+
+//        $query = DB::table('users')->select('name');
+//
+//        $users = $query->addSelect('email')->get();
+//
+//        dd($users);
+
+//        $users = DB::table('users')->distinct()->get();
+//
+//        dd($users);
+
         $users = DB::table('users')
-            ->select('name', 'email as user_email')
+            ->select(DB::raw('count(*) as user_count, name'))
+            ->where('name', '<>', 'Carlos André')
+            ->groupBy('id')
             ->get();
+
         dd($users);
 
 //        return view('db.index', ['data' => $users]);
