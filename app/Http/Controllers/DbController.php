@@ -71,6 +71,11 @@ class DbController extends Controller
 //        $users = DB::table('users')->count();
 //        $users = DB::table('users')->max('id');
 
+//        $users = DB::table('users')
+//            ->where('name', 'LIKE',  'C%')
+//            ->max('id');
+
+
 
         return view('db.index', ['data' => $users]);
 //          return $users;
