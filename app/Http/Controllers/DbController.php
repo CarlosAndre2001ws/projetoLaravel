@@ -15,11 +15,9 @@ class DbController extends Controller
     public function index()
     {
 //        $data = DB::select('select * from users where id = :id', ['id' => 1]);
-        $data = DB::scalar(
-            "select count(case when name like 'CCCC%' then 1 end) as users from users"
-        );
 //        return view('db.index', ['data' => $data]);
-          return ($data);
+        DB::insert('insert into users (name, email, password) values (?, ?, ?)', ['Exemplo', 'exemplodasilva@email.com', '123']);
+          return view('db.index');
     }
 
     /**
