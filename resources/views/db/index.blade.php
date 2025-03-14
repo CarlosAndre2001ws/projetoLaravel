@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    {{ $deleted }}
-    @foreach($data as $dado)
-        <p>{{ $dado->name }}</p>
+@foreach($data as $dado)
+    @foreach($dado as $valores)
+        <li>{{ $valores }}</li>
     @endforeach
+@endforeach
 @endsection

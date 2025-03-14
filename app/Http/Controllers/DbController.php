@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class DbController extends Controller
 {
@@ -19,11 +20,24 @@ class DbController extends Controller
 //            ['Nome Alterado', 52]
 //        );
 //        $deleted = DB::delete('delete from users where id = ?', [52]);
-        $data = DB::select('select * from users');
+//        $data = DB::select('select * from users');
 //        $data = DB::select('select * from users where id = :id', ['id' => 1]);
 //        return view('db.index', ['data' => $data]);
+        // you can use php artisan db:show to display the database
+        // you can also use php artisan db:show --database=databaseName to display a specific database
+        // php artisan db:show --counts --views displays the number of views and rows
 //        DB::insert('insert into users (name, email, password) values (?, ?, ?)', ['Exemplo', 'exemplodasilva@email.com', '123']);
-        return view('db.index', ['data' => $data], ['deleted' => $deleted]);
+        $tables = Schema::getTables();
+//        $views = Schema::getViews();
+//
+//        $columns = Schema::getColumns('users');
+//
+//        $indexes = Schema::getIndexes('users');
+//
+//        $foreignKeys = Schema::getForeignKeys('users');
+
+        return view('db.index', ['data' => $tables]);
+//          return $tables;
     }
 
     /**
