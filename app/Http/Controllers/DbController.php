@@ -199,6 +199,15 @@ class DbController extends Controller
 //            ->whereIn('id', $verifiedEmails)
 //            ->get();
 
+
+//        $users = DB::table('users')
+//            ->whereBetween('id', [10, 30])
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereNotBetween('id', [10, 30])
+//            ->get();
+
         dd($users);
 
 //        return view('db.index', ['data' => $users]);
