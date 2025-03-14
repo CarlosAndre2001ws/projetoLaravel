@@ -153,14 +153,36 @@ class DbController extends Controller
 //            ], 'like', '%car%')
 //            ->get();
 
-        $users = DB::table('users')
-            ->where('email_verified_at', '!=', null)
-            ->whereNone([
-                'name',
-                'email',
-                'password',
-            ], 'like', '%car%')
-            ->get();
+//        $users = DB::table('users')
+//            ->where('email_verified_at', '!=', null)
+//            ->whereNone([
+//                'name',
+//                'email',
+//                'password',
+//            ], 'like', '%car%')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereLike('name', '%ma%')
+//            ->get();
+
+//        $users = DB::table('users')
+//        ->whereLike('name', '%ma%', caseSensitive: true)
+//        ->get();
+
+//        $users = DB::table('users')
+//            ->where('name', 'Borzoi')
+//            ->orWhereLike('email', '%bo%')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereNotLike('name', '%bor%')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->where('email', 'jonson@email.com')
+//            ->orWhereNotLike('name', '%los%')
+//            ->get();
 
         dd($users);
 
