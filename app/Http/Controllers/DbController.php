@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -38,15 +39,28 @@ class DbController extends Controller
 //
 //        php artisan db:table users displays an overview of an individual table in the database
 //        $users = DB::table('users')->get();
-        // this is to find the first user with the name Carlos André
+
+//        this is to find the first user with the name Carlos André
 //        $users = DB::table('users')->where('name', 'Carlos André')->first();
+
 //        this is to find the first user with the name Carlos André and only retrieve the name column
 //        $users = DB::table('users')->where('name', 'Carlos André')->value('name');
-//        this is to find the value by its id
-        $users = DB::table('users')->find(1);
 
-        return view('db.index', ['data' => $users]);
-//          return $tables;
+//        this is to find the value by its id
+//        $users = DB::table('users')->find(1);
+
+//        this gets all the values from a single column
+//        $users = DB::table('users')->pluck('name', 'email');
+
+        DB::table("users")->orderBy("id", "desc")->chunk(3, function (Collection $users) {
+            foreach ($users as $user) {
+                 echo "<li>".$user->name."</li>";
+            }
+            return false;
+        });
+
+//        return view('db.index', ['data' => $users]);
+//          return $users;
     }
 
     /**
