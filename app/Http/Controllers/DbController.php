@@ -96,11 +96,34 @@ class DbController extends Controller
 //
 //        dd($users);
 
-        $users = DB::table('users')
-            ->select(DB::raw('count(*) as user_count, name'))
-            ->where('name', '<>', 'Carlos André')
-            ->groupBy('id')
-            ->get();
+//        $users = DB::table('users')
+//            ->select(DB::raw('count(*) as user_count, name'))
+//            ->where('name', '<>', 'Carlos André')
+//            ->groupBy('id')
+//            ->get();
+        // i dont get this one
+//        $users = DB::table('users')
+//            ->selectRaw('name * ? as user_name', ['Carlos André'])
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->where('name', '=', 'Carlos André')
+//            ->where('email', 'like', 'admin%')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->where('name', 'Carlos André')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->where('name', '!=', 40)
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->where([
+//                ['name', '=', 'Carlos André'],
+//                ['email', 'like', 'admin%']
+//            ])->get();
 
         dd($users);
 
