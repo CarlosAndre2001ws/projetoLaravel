@@ -75,13 +75,18 @@ class DbController extends Controller
 //            ->where('name', 'LIKE',  'C%')
 //            ->max('id');
 
-        $users = [];
+//        $users = [];
+//
+//        if(DB::table('users')->where('name', 'Carlos André')->exists()){
+//            $users = ['Exists' => 'I exist !'];
+//        }
 
-        if(DB::table('users')->where('name', 'Carlos André')->exists()){
-            $users = ['Exists' => 'I exist !'];
-        }
+        $users = DB::table('users')
+            ->select('name', 'email as user_email')
+            ->get();
+        dd($users);
 
-        return view('db.index', ['data' => $users]);
+//        return view('db.index', ['data' => $users]);
 //          return $users;
     }
 
