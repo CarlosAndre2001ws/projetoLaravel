@@ -52,14 +52,27 @@ class DbController extends Controller
 //        this gets all the values from a single column
 //        $users = DB::table('users')->pluck('name', 'email');
 
-        DB::table("users")->orderBy("id", "desc")->chunk(3, function (Collection $users) {
-            foreach ($users as $user) {
-                 echo "<li>".$user->name."</li>";
-            }
-            return false;
-        });
+//        DB::table("users")->orderBy("id", "desc")->chunk(3, function (Collection $users) {
+//            foreach ($users as $user) {
+//                 echo "<li>".$user->name."</li>";
+//            }
+//            return false;
+//        });
 
-//        return view('db.index', ['data' => $users]);
+//        DB::table("users")->where('active', false)
+//        ->chunkById(10, function (Collection $users) {
+//            foreach ($users as $user) {
+//                DB::table('users')
+//                    ->where('id', $user->id)
+//                    ->update(['active' => true]);
+//            }
+//        });
+
+//        $users = DB::table('users')->count();
+//        $users = DB::table('users')->max('id');
+
+
+        return view('db.index', ['data' => $users]);
 //          return $users;
     }
 
