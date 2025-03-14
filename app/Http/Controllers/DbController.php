@@ -199,7 +199,6 @@ class DbController extends Controller
 //            ->whereIn('id', $verifiedEmails)
 //            ->get();
 
-
 //        $users = DB::table('users')
 //            ->whereBetween('id', [10, 30])
 //            ->get();
@@ -235,6 +234,32 @@ class DbController extends Controller
 //        $users = DB::table('users')
 //            ->whereTime('created_at', '=', '16:36:30')
 //            ->get();
+
+//        $users = DB::table('users')
+//            ->wherePast('created_at')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereFuture('fake_teste_data')
+//            ->get();
+
+//        $invoices = DB::table('invoices')
+//            ->whereNowOrPast('due_at')
+//            ->get();
+//
+//        $invoices = DB::table('invoices')
+//            ->whereNowOrFuture('due_at')
+//            ->get();
+
+//        $invoices = DB::table('invoices')
+//            ->whereTodayOrBefore('due_at')
+//            ->get();
+//
+//        $invoices = DB::table('invoices')
+//            ->whereTodayOrAfter('due_at')
+//            ->get();
+
+
 
         dd($users);
 
