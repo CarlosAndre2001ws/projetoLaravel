@@ -208,6 +208,14 @@ class DbController extends Controller
 //            ->whereNotBetween('id', [10, 30])
 //            ->get();
 
+//        $users = DB::table('users')
+//            ->whereNull('email_verified_at')
+//            ->get();
+
+        $users = DB::table('users')
+            ->whereNotNull('email_verified_at')
+            ->get();
+
         dd($users);
 
 //        return view('db.index', ['data' => $users]);
