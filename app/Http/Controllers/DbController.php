@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -124,6 +125,18 @@ class DbController extends Controller
 //                ['name', '=', 'Carlos André'],
 //                ['email', 'like', 'admin%']
 //            ])->get();
+
+//        $users = DB::table('users')
+//            ->where('name', 'Borzoi')
+//            ->orWhere('name', 'LIKE', 'Maria%')
+//            ->get();
+
+        $users = DB::table('users')
+            ->where('name', 'Borzoi')
+            ->orWhere(function (Builder $query){
+                $query->where('name', 'LIKE', 'Maria%');
+            })
+            ->get();
 
         dd($users);
 
