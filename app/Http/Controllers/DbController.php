@@ -131,10 +131,16 @@ class DbController extends Controller
 //            ->orWhere('name', 'LIKE', 'Maria%')
 //            ->get();
 
+//        $users = DB::table('users')
+//            ->where('name', 'Borzoi')
+//            ->orWhere(function (Builder $query){
+//                $query->where('name', 'LIKE', 'Maria%');
+//            })
+//            ->get();
+
         $users = DB::table('users')
-            ->where('name', 'Borzoi')
-            ->orWhere(function (Builder $query){
-                $query->where('name', 'LIKE', 'Maria%');
+            ->whereNot(function(Builder $query) {
+                $query->whereNotNull('email_verified_at');
             })
             ->get();
 
