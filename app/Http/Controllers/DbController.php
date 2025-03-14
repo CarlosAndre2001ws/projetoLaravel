@@ -14,7 +14,7 @@ class DbController extends Controller
      */
     public function index()
     {
-        $data = DB::select('select * from users');
+        $data = DB::select('select * from users where id = :id', ['id' => 1]);
         return view('db.index', ['data' => $data]);
 
     }
