@@ -16,7 +16,7 @@ class DbController extends Controller
     {
         $data = DB::select('select * from users');
         return view('db.index', ['data' => $data]);
-//         return $data;
+
     }
 
     /**
