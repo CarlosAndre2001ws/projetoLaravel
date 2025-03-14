@@ -212,9 +212,29 @@ class DbController extends Controller
 //            ->whereNull('email_verified_at')
 //            ->get();
 
-        $users = DB::table('users')
-            ->whereNotNull('email_verified_at')
-            ->get();
+//        $users = DB::table('users')
+//            ->whereNotNull('email_verified_at')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereDate('created_at', '2025-03-14')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereMonth('created_at', '03')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereDay('created_at', '26')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereYear('created_at', '2025')
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->whereTime('created_at', '=', '16:36:30')
+//            ->get();
 
         dd($users);
 
