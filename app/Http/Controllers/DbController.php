@@ -35,6 +35,7 @@ class DbController extends Controller
 //        $indexes = Schema::getIndexes('users');
 //
 //        $foreignKeys = Schema::getForeignKeys('users');
+        // php artisan db:table users displays an overview of an individual table in the database
 
         return view('db.index', ['data' => $tables]);
 //          return $tables;
