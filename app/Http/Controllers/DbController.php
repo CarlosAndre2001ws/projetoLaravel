@@ -37,7 +37,13 @@ class DbController extends Controller
 //        $foreignKeys = Schema::getForeignKeys('users');
 //
 //        php artisan db:table users displays an overview of an individual table in the database
-        $users = DB::table('users')->get();
+//        $users = DB::table('users')->get();
+        // this is to find the first user with the name Carlos André
+//        $users = DB::table('users')->where('name', 'Carlos André')->first();
+//        this is to find the first user with the name Carlos André and only retrieve the name column
+//        $users = DB::table('users')->where('name', 'Carlos André')->value('name');
+//        this is to find the value by its id
+        $users = DB::table('users')->find(1);
 
         return view('db.index', ['data' => $users]);
 //          return $tables;
