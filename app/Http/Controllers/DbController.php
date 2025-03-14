@@ -138,10 +138,28 @@ class DbController extends Controller
 //            })
 //            ->get();
 
+//        $users = DB::table('users')
+//            ->whereNot(function(Builder $query) {
+//                $query->whereNotNull('email_verified_at');
+//            })
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->where('email_verified_at', '!=', null)
+//            ->whereAny([
+//                'name',
+//                'email',
+//                'password',
+//            ], 'like', '%car%')
+//            ->get();
+
         $users = DB::table('users')
-            ->whereNot(function(Builder $query) {
-                $query->whereNotNull('email_verified_at');
-            })
+            ->where('email_verified_at', '!=', null)
+            ->whereNone([
+                'name',
+                'email',
+                'password',
+            ], 'like', '%car%')
             ->get();
 
         dd($users);
