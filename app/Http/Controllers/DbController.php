@@ -184,6 +184,21 @@ class DbController extends Controller
 //            ->orWhereNotLike('name', '%los%')
 //            ->get();
 
+//        $users = DB::table('users')
+//            ->WhereIn('id', [1, 2, 3, 33, 42 , 4, 37])
+//            ->get();
+
+//        $users = DB::table('users')
+//            ->WhereNotIn('id', [1, 2, 3])
+//            ->get();
+
+//        $verifiedEmails = DB::table('users')->select('id')
+//            ->where('email_verified_at', '!=', 'null');
+//
+//        $users = DB::table('users')
+//            ->whereIn('id', $verifiedEmails)
+//            ->get();
+
         dd($users);
 
 //        return view('db.index', ['data' => $users]);
