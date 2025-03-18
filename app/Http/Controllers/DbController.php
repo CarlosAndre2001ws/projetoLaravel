@@ -7,7 +7,9 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Schema;
 
 class DbController extends Controller
@@ -15,7 +17,7 @@ class DbController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 //        $affected = DB::update(
 //            'update users set name = ? where id = ?',
@@ -271,10 +273,49 @@ class DbController extends Controller
 //            ])
 //            ->get();
 
-        dd($users);
+//        $users = DB::table('users')
+//            ->orderBy('name', 'desc')
+//            ->orderBy('email', 'asc')
+//            ->get();
+
+//        $randomUser = DB::table('users')
+//            ->inRandomOrder()
+//            ->first();
+
+//        $users = DB::table('users')
+//
+//            ->groupBy('name')
+//
+//            ->having('id', '<', 10)
+//
+//            ->get();
+
+//        $users = DB::table('users')->skip(10)->take(5)->get();
+//        $logged = $request->id('1');
+
+//        $role = false;
+
+//        $users = DB::table('users')
+//            ->when($role, function (Builder $query, String $role) {
+//                $query->where('id', $role);
+//            })
+//            ->get();
+//
+//        $affected = DB::table("users")
+//            ->where('id', 1)
+//            ->update(['name' => 'Carlos André']);
+
+//        $users = DB::table('users')
+//            ->select('*')
+//            ->get();
+//
+//        dd($users);
 
 //        return view('db.index', ['data' => $users]);
 //          return $users;
+        return view('db.index', [
+            'users' => DB::table('users')->paginate(10),
+        ]);
     }
 
     /**

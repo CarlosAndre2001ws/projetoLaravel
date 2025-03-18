@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('content')
-@foreach($data as $dado)
-    <li>{{ $dado }}</li>
-@endforeach
-{{--    @foreach($data as $dado)--}}
-{{--        <li>{{ $dado }}</li>--}}
-{{--    @endforeach--}}
-{{--    {{ $data->name }}--}}
-{{--    {{ $data }}--}}
+    @foreach ($users as $user)
+        <li>{{ $user->name }}</li>
+    @endforeach
+    {{ $users->links('pagination::bootstrap-5') }}
 @endsection
