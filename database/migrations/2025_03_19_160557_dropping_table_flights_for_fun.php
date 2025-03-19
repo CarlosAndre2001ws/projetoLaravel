@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::rename('flights', 'this_is_a_test');
+        Schema::dropIfExists('flights');
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::rename('this_is_a_test', 'flights');
+        Schema::table('flights', function (Blueprint $table) {
+
+        });
     }
 };
