@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('flights');
+        Schema::table('flights', function (Blueprint $table) {
+            $table->string('votes')->nullable()->change();
+        });
     }
 
     /**
@@ -20,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('flights', function (Blueprint $table) {
-
+            $table->integer('votes')->nullable()->change();
         });
     }
 };
