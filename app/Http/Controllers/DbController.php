@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Flight;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -339,7 +340,9 @@ class DbController extends Controller
      */
     public function show(User $user)
     {
-        //
+//        foreach(User::all() as $user){
+//            echo $user->name;
+//        }
     }
 
     /**
