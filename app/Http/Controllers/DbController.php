@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Model;
 
 class DbController extends Controller
 {
@@ -338,11 +339,18 @@ class DbController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show()
     {
 //        foreach(User::all() as $user){
 //            echo $user->name;
 //        }
+
+        $users = User::where('id', '<', ' 120')
+            ->orderBy('name')
+            ->take(10)
+            ->get();
+
+        $users->dd();
     }
 
     /**
