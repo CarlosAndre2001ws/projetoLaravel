@@ -345,12 +345,12 @@ class DbController extends Controller
 //            echo $user->name;
 //        }
 
-        $users = User::where('id', '<', ' 120')
-            ->orderBy('name')
-            ->take(10)
-            ->get();
-
-        $users->dd();
+//        $users = User::where('id', '<', ' 20')
+//            ->orderBy('name')
+//            ->take(10)
+//            ->get();
+//
+//        $users->fresh()->dd();
     }
 
     /**
