@@ -37,7 +37,16 @@ class FlightController extends Controller
      */
     public function show(Flight $flight)
     {
-        $flight->all()->dd();
+//        $flight = Flight::where('id', 1);
+//
+//        $flight->restore();
+//        Flight::destroy(1, 2, 3);
+
+//        Flight::where('id', 1)->delete();
+
+        $teste = Flight::withTrashed()->limit(10)->get();
+
+        dd($teste);
     }
 
     /**

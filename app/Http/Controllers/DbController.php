@@ -352,11 +352,13 @@ class DbController extends Controller
 //
 //        $users->fresh()->dd();
 
-        $users = User::all();
-
 //        $users = $users->reject(function ($user) {
 //            return $user->id < 3;
 //        });
+
+        dd(
+            
+        );
 
 //        foreach ($users as $user) {
 //            echo $user->email;
