@@ -357,8 +357,20 @@ class DbController extends Controller
 //        });
 
         dd(
-            
+
         );
+
+//        foreach ($users as $user) {
+//            echo $user->email;
+//            echo '<br>';
+//        }
+
+
+        $users = User::all();
+
+//        $users = $users->reject(function ($user) {
+//            return $user->id < 3;
+//        });
 
 //        foreach ($users as $user) {
 //            echo $user->email;
