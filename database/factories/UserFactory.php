@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -30,6 +32,21 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
+    }
+
+    /*
+     * Configuring the factory
+     */
+
+    public function configuring()
+    {
+        return $this->afterCreating(function (User $user) {
+            $phone = Phone::factory()->create([
+                'user_id' => $user->id,
+            ]);
+            $user->phone()->associate($phone);
+            $user->save();
+        });
     }
 
     /**

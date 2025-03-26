@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Http\Request;
 class PhoneController extends Controller
 {
@@ -10,7 +12,7 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        return view('phones.index');
+        return view('phones.index', ['dados' => Phone::with('user')->get()]);
     }
 
     /**
