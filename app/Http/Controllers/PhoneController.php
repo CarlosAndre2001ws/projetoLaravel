@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Flight;
-use App\Http\Requests\StoreFlightRequest;
-use App\Http\Requests\UpdateFlightRequest;
-
-class FlightController extends Controller
+use Illuminate\Http\Request;
+class PhoneController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('phones.index');
     }
 
     /**
@@ -27,7 +24,7 @@ class FlightController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFlightRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,24 +32,15 @@ class FlightController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Flight $flight)
+    public function show(string $id)
     {
-//        $flight = Flight::where('id', 1);
-//
-//        $flight->restore();
-//        Flight::destroy(1, 2, 3);
-
-//        Flight::where('id', 1)->delete();
-
-        $teste = Flight::onlyTrashed()->limit(10)->get();
-
-        dd($teste);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Flight $flight)
+    public function edit(string $id)
     {
         //
     }
@@ -60,7 +48,7 @@ class FlightController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFlightRequest $request, Flight $flight)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -68,7 +56,7 @@ class FlightController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Flight $flight)
+    public function destroy(string $id)
     {
         //
     }

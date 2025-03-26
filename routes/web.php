@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DbController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Requests\StorePostRequest;
 use App\Models\User;
@@ -111,3 +112,7 @@ Route::get('/dev/post', [PostController::class, 'store']);
 Route::get('/db', [DbController::class, 'show']);
 
 Route::get('/flt', [FlightController::class, 'show']);
+
+Route::resources([
+    'phones' => PhoneController::class,
+]);
