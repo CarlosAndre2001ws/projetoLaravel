@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\collections\CollectionController;
 use App\Http\Controllers\DbController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\PhoneController;
@@ -13,13 +14,15 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
+//use App\Http\Controllers\collections\CollectionController;
+
 
 //Route::get('/users/{user}', function(User $user){
 //
 //    return $user;
 //});
 
-Route::get('/teste', function(){
+Route::get('/teste', function () {
     return response()->json([
         'isso é' => 'um teste'
     ]);
@@ -41,7 +44,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //    return redirect('/home');
 //});
 // Redirecting to a named route
-Route::get('/dashboard', function(){
+Route::get('/dashboard', function () {
     return redirect()->route('home');
 });
 
@@ -62,10 +65,12 @@ Route::get('/nome/{user}', [UserController::class, 'nome'])->name('nome');
 // Redirect with controller action
 Route::get('/teste', [UserController::class, 'redirectAction']);
 
-function streamedContent(): Generator {
+function streamedContent(): Generator
+{
     yield 'Hello, ';
     yield 'World!';
 }
+
 // Streamed Respnses
 Route::get('/stream', function () {
     return response()->stream(function (): void {
@@ -78,33 +83,33 @@ Route::get('/stream', function () {
     }, 200, ['X-Accel-Buffering' => 'no']);
 });
 //view
-Route::get('/greetings', function(){
-    return view('greetings',['name' => 'Jhon Marston']);
+Route::get('/greetings', function () {
+    return view('greetings', ['name' => 'Jhon Marston']);
 });
 //nested view
-Route::get('/hidden', function(){
+Route::get('/hidden', function () {
     return view('hidden.dontLook');
 });
 
 // Passing data through a view
 Route::get('/username', [UserController::class, 'username']);
 
-Route::get('/tasks', function(){
+Route::get('/tasks', function () {
     return view('tasks', ['tasks' => ['Task 1', 'Task 2', 'Task 3'], 'title' => 'Task 1']);
 });
 
-Route::get('/minha-tela', function(){
+Route::get('/minha-tela', function () {
     return view('child');
 });
 
-Route::get('/dev', function (){
+Route::get('/dev', function () {
     return view('dev', ['amIScared' => false]);
 });
 
-Route::get('/inline', function(){
-   return Blade::render('Hello, {{ $name }}',
-       ['name' => 'Julian'],
-       deleteCachedView: true);
+Route::get('/inline', function () {
+    return Blade::render('Hello, {{ $name }}',
+        ['name' => 'Julian'],
+        deleteCachedView: true);
 });
 
 Route::get('/dev/post', [PostController::class, 'store']);
@@ -116,3 +121,5 @@ Route::get('/flt', [FlightController::class, 'show']);
 Route::resources([
     'phones' => PhoneController::class,
 ]);
+
+Route::get('/cll', [CollectionController::class, 'index']);

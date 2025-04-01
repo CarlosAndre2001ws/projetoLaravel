@@ -14,15 +14,6 @@ class PhoneController extends Controller
      */
     public function index()
     {
-
-        $collection = collect($collection)->map(function (?string $name) {
-            return strtoupper($name);
-        })->reject(function (string $name) {
-            return empty($name);
-        });
-
-        dd($collection);
-
         return view('phones.index', ['dados' => Auth::user()->with('phone')->get()]);
     }
 
