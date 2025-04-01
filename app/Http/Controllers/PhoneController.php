@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class PhoneController extends Controller
 {
     /**
@@ -12,7 +14,7 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        return view('phones.index', ['dados' => Phone::with('user')->get()]);
+        return view('phones.index', ['dados' => Auth::user()->with('phone')->get()]);
     }
 
     /**
@@ -20,7 +22,7 @@ class PhoneController extends Controller
      */
     public function create()
     {
-        //
+        return view('phones.create');
     }
 
     /**
@@ -28,7 +30,17 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'user_id' => 'unique'
+        ]);
+
+        Phone::updateOrInsert([
+            'user_id' => Auth()->user()->id,
+            'number' => $request->number,
+            'label' => 'generic'
+        ]);
+        redirect()->route('phones.show', ['phone' => Auth()->user()->id]);
     }
 
     /**
@@ -36,7 +48,12 @@ class PhoneController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $user = Auth::user();
+
+        $user->load('phone');
+
+        return view('phones.show', ['dados' => $user]);
     }
 
     /**

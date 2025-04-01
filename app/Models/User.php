@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -50,8 +51,8 @@ class User extends Authenticatable
     /*
      * Get the phone associated with the user.
      */
-    public function phone(): HasOne
+    public function phone(): HasMany
     {
-        return $this->hasOne(Phone::class);
+        return $this->hasMany(Phone::class);
     }
 }

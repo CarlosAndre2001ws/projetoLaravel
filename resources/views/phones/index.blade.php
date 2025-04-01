@@ -12,8 +12,12 @@
             <tbody>
             @foreach($dados as $dado)
                 <tr>
-                    <td>{{ $dado->user->name }}</td>
-                    <td>{{ $dado->number }}</td>
+                    <td>{{ $dado->name }}</td>
+                    <td>
+                        @foreach($dado->phone as $phone)
+                            {{ $phone->number }}<br>
+                        @endforeach
+                    </td>
                 </tr>
             @endforeach
             </tbody>
